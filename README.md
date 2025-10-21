@@ -73,16 +73,17 @@ Bonus : ajoute un champ de recherche (input) pour filtrer la liste selon le text
 🧩 Structure du projet
 
 td-react-intro/
-├─ src/
-│ ├─ App.tsx → composant principal
-│ ├─ main.tsx → point d’entrée React/Vite
-│ ├─ SuperHeros.json → données JSON importées
-│ ├─ index.css → styles globaux
-│ └─ json.d.ts → module JSON (optionnel)
-├─ tsconfig.json
-├─ vite.config.ts
-├─ package.json
-└─ README.md
+ ├─ src/
+ │   ├─ App.tsx              # Composant principal
+ │   ├─ main.tsx             # Point d’entrée React/Vite
+ │   ├─ SuperHeros.json      # Données JSON importées
+ │   ├─ index.css            # Styles globaux
+ │   └─ json.d.ts (optionnel) # Module JSON si besoin
+ ├─ tsconfig.json
+ ├─ vite.config.ts
+ ├─ package.json
+ └─ README.md
+
 
 🧪 Vérifications
 Étape	Élément visible dans le navigateur	Validation
@@ -105,12 +106,15 @@ td-react-intro/
 🧩 Hooks : useState, useEffect
 
 📸 Aperçu attendu
-
 Bonjour Toto, je découvre React !
-Compteur : 0 [+] [Réinitialiser]
-(Le titre du navigateur change avec la valeur du compteur)
+Compteur : 0   [+] [Réinitialiser]
+(Il change le titre du navigateur)
 Il y a 3 super-héros dans la base.
 [ Champ de recherche ]
+- Batman
+- Superman
+- Wonder Woman
+
 
 Batman
 
