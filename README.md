@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+🧩 TP React – Partie 3 : Exercices pratiques
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projet : td-react-intro
 
-Currently, two official plugins are available:
+🚀 Installation et lancement
+1️⃣ Cloner ou créer le projet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Commandes à exécuter :
+npm create vite@latest td-react-intro -- --template react-ts
+cd td-react-intro
+npm install
 
-## React Compiler
+2️⃣ Démarrer le serveur de développement
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Commande :
+npm run dev
 
-## Expanding the ESLint configuration
+➡️ Ouvre ensuite l’URL indiquée (souvent http://localhost:5173
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🧠 Étapes du TP
+Étape 1 – Premier composant
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Fichier : src/App.tsx
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Affiche le message : Bonjour Toto, je découvre React !
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Utilise une variable nom injectée dans le JSX.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Étape 2 – Gestion de l’état (useState)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Déclare un état compteur initialisé à 0.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Ajoute deux boutons :
+
+“+” → incrémente le compteur
+
+“Réinitialiser” → remet le compteur à 0
+
+Le compteur s’affiche et réagit aux clics.
+
+Étape 3 – Effet de bord (useEffect)
+
+À chaque changement du compteur, le titre de la page (document.title) est mis à jour automatiquement.
+
+Exemple de titre attendu : Compteur: 3
+
+Étape 4 – Import d’un JSON
+
+Crée un fichier src/SuperHeros.json contenant :
+
+[
+{"id":1,"name":"Batman"},
+{"id":2,"name":"Superman"},
+{"id":3,"name":"Wonder Woman"}
+]
+
+Importe ce fichier dans App.tsx
+
+Affiche : Il y a 3 super-héros dans la base.
+
+Étape 5 – Affichage dynamique
+
+Parcours le JSON avec .map() pour afficher la liste des noms :
+
+Batman
+
+Superman
+
+Wonder Woman
+
+Bonus : ajoute un champ de recherche (input) pour filtrer la liste selon le texte saisi.
+
+🧩 Structure du projet
+
+td-react-intro/
+├─ src/
+│ ├─ App.tsx → composant principal
+│ ├─ main.tsx → point d’entrée React/Vite
+│ ├─ SuperHeros.json → données JSON importées
+│ ├─ index.css → styles globaux
+│ └─ json.d.ts → module JSON (optionnel)
+├─ tsconfig.json
+├─ vite.config.ts
+├─ package.json
+└─ README.md
+
+🧪 Vérifications
+Étape	Élément visible dans le navigateur	Validation
+1	“Bonjour Toto, je découvre React !”	✅
+2	Boutons “+” et “Réinitialiser” fonctionnels	✅
+3	Titre de page mis à jour	✅
+4	“Il y a 3 super-héros dans la base.”	✅
+5	Liste et recherche dynamique	✅
+
+🧰 Technologies utilisées
+
+⚡ Vite – Build tool rapide pour React
+
+⚛️ React 18 – Librairie d’interface utilisateur
+
+💬 TypeScript – Typage statique
+
+💅 JSX / TSX – Syntaxe de composants
+
+🧩 Hooks : useState, useEffect
+
+📸 Aperçu attendu
+
+Bonjour Toto, je découvre React !
+Compteur : 0 [+] [Réinitialiser]
+(Le titre du navigateur change avec la valeur du compteur)
+Il y a 3 super-héros dans la base.
+[ Champ de recherche ]
+
+Batman
+
+Superman
+
+Wonder Woman
